@@ -74,7 +74,7 @@ function __git.init
   __git.create_abbr ggl        git pull origin \(__git.current_branch\)
   __git.create_abbr gll        git pull origin
   __git.create_abbr glr        git pull --rebase
-  __git.create_abbr glg        git log --stat
+  # __git.create_abbr glg        git log --stat
   __git.create_abbr glgg       git log --graph
   __git.create_abbr glgga      git log --graph --decorate --all
   __git.create_abbr glo        git log --oneline --decorate --color
