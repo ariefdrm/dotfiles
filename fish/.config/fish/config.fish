@@ -1,5 +1,7 @@
 # export path
 set -U DOTNET_ROOT $HOME/.dotnet
+set -U csharp_ls $HOME/.dotnet/tools
+set -U DOTNET_RUNTIME $HOME/.dotnet/shared/
 
 # set alias 
 alias fishconfig='cd ~/.config/fish'
@@ -22,6 +24,9 @@ alias gst='git status'
 alias ls='exa --icons'
 alias ll='exa --icons -l'
 alias lt='exa --icons --tree'
+
+# Set alias for mariadb database
+alias mysql='mariadb -uarief -p'
 
 # export path
 set -x LANGUAGE en_US.UTF-8

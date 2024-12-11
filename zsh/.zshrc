@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.dotnet/dotnet:$PATH
+export PATH=$HOME/.dotnet/tools:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -9,7 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/night-owl.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/catppuccin.omp.json)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,7 +74,7 @@ eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/night-owl.omp.json)"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  # zsh-autosuggestions
+  zsh-autosuggestions
   git
 )
 
@@ -107,3 +109,5 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="cd ~/.oh-my-zsh"
 alias nvimconfig="cd ~/.config/nvim"
+alias ll="exa -l"
+alias ls="exa --icons"

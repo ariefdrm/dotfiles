@@ -1,4 +1,5 @@
 # export PATH=$PATH:/home/arief/.local/bin
+export PATH="$PATH:/home/arief/.dotnet/tools"
 
 #
 # ~/.bashrc
