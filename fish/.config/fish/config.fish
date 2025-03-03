@@ -3,6 +3,8 @@ set -U DOTNET_ROOT $HOME/.dotnet
 set -U csharp_ls $HOME/.dotnet/tools
 set -U DOTNET_RUNTIME $HOME/.dotnet/shared/
 
+export PATH=$PATH:/home/arief/.local/bin
+
 # set alias 
 alias fishconfig='cd ~/.config/fish'
 alias nvimconfig='cd ~/.config/nvim'
@@ -35,8 +37,8 @@ set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-oh-my-posh init fish --config "~/.config/fish/catppuccin.omp.json" | source
+  # Commands to run in interactive sessions can go here
+  oh-my-posh init fish --config "~/.config/fish/catppuccin.omp.json" | source
+  # oh-my-posh init fish | source
 
-fzf --fish | source
 end

@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.dotnet/dotnet:$PATH
@@ -10,8 +17,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/catppuccin.omp.json)"
+ZSH_THEME="robbyrussell"
+# eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/catppuccin.omp.json)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,6 +82,7 @@ eval "$(oh-my-posh init zsh --config ~/.oh-my-zsh/catppuccin.omp.json)"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   zsh-autosuggestions
+  zsh-syntax-highlighting
   git
 )
 
@@ -111,3 +119,20 @@ alias ohmyzsh="cd ~/.oh-my-zsh"
 alias nvimconfig="cd ~/.config/nvim"
 alias ll="exa -l"
 alias ls="exa --icons"
+
+# alias to connect windows folder
+alias wsl="cd /mnt/c/Users/$(whoami)/Dev"
+
+# alias for git
+alias gst="git status"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glog1="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gadda="git add ."
+alias gcm="git commit -m"
+alias gsw="git switch"
+
+# source for powerlevel10k
+source ~/.powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
