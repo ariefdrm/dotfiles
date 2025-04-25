@@ -9,6 +9,7 @@ fi
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.dotnet/dotnet:$PATH
 export PATH=$HOME/.dotnet/tools:$PATH
+export PATH=$HOME/.dev/flutter/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -119,6 +120,7 @@ alias ohmyzsh="cd ~/.oh-my-zsh"
 alias nvimconfig="cd ~/.config/nvim"
 alias ll="exa -l"
 alias ls="exa --icons"
+alias lt="exa -T --icons"
 
 # alias to connect windows folder
 alias wsl="cd /mnt/c/Users/$(whoami)/Dev"
