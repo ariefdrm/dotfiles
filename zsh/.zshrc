@@ -121,6 +121,7 @@ alias nvimconfig="cd ~/.config/nvim"
 alias ll="exa -l --icons"
 alias ls="exa --icons"
 alias lt="exa -T --icons"
+alias nvi='nvim $(fzf -m --preview="bat --color=always {}")' # alias fzf used to open multiple files with neovim
 
 # alias to connect windows folder
 alias wsl="cd /mnt/c/Users/$(whoami)/Dev"
