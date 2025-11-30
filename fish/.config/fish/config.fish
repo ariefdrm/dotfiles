@@ -1,7 +1,7 @@
 # export path
-set -U DOTNET_ROOT $HOME/.dotnet
-set -U csharp_ls $HOME/.dotnet/tools
-set -U DOTNET_RUNTIME $HOME/.dotnet/shared/
+# set -U DOTNET_ROOT $HOME/.dotnet
+# set -U csharp_ls $HOME/.dotnet/tools
+# set -U DOTNET_RUNTIME $HOME/.dotnet/shared/
 
 export PATH=$PATH:/home/arief/.local/bin
 
