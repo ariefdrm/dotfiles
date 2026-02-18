@@ -3,14 +3,20 @@ general.import = [
   # "~/.config/alacritty/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/catppuccin-mocha.toml",
 ]
 
 [env]
-  TERM = "xterm-256color"
+TERM = "xterm-256color"
 
 [font]
-  normal = { family = "CaskaydiaMono Nerd Font"}
-  bold = { family = "CaskaydiaMono Nerd Font"}
-  italic = { family = "CaskaydiaMono Nerd Font"}
-  size = 12
+normal = { family = "CaskaydiaMono Nerd Font" }
+bold = { family = "CaskaydiaMono Nerd Font" }
+italic = { family = "CaskaydiaMono Nerd Font" }
+size = 12
+
+[window]
+startup_mode = "Maximized"
+dimensions = { columns = 0, lines = 0 }
+decorations = "full"
+# dimensions = { columns = 180, lines = 50 }

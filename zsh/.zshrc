@@ -1,8 +1,8 @@
-macchina 
+fastfetch 
 
 clear() { 
   command  clear
-  macchina
+  fastfetch
 }
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -125,10 +125,11 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="cd ~/.oh-my-zsh"
 alias nvimconfig="cd ~/.config/nvim"
-alias ll="exa -l --icons"
-alias ls="exa --icons"
-alias lt="exa -T --icons"
+alias ll="eza -l --icons"
+alias ls="eza --icons"
+alias lt="eza -T --icons"
 alias nvi='nvim $(fzf -m --preview="bat --color=always {}")' # alias fzf used to open multiple files with neovim
+alias open='dolphin'
 
 # alias to connect windows folder
 alias wsl="cd /mnt/c/Users/$(whoami)/Dev"
@@ -168,6 +169,11 @@ nvim() {
     fi
 }
 
+
+if uwsm check may-start && uwsm select; then
+	exec uwsm start default
+fi
+
 # nvm (node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -195,3 +201,7 @@ load-nvmrc() {
   fi
 }
 
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
