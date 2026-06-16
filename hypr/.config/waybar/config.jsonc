@@ -1,0 +1,132 @@
+{
+    // ── Bar geometry ────────────────────────────────────────────────
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    // ── Module layout: 3 sections ───────────────────────────────────
+    "modules-left": [
+        "clock"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/media",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "battery",
+        "tray"
+    ],
+
+    // ── LEFT: Clock & calendar ──────────────────────────────────────
+    "clock": {
+        "format": "<span color='#b4befe'>󰥔</span> {:%H:%M}",
+        "format-alt": "<span color='#b4befe'>󰃭</span> {:%a %d %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months":  "<span color='#cdd6f4'><b>{}</b></span>",
+                "weekdays": "<span color='#a6adc8'><b>{}</b></span>",
+                "today":    "<span color='#89b4fa'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    // ── CENTER: Workspaces ──────────────────────────────────────────
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "sort-by-number": true,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+
+    // ── RIGHT: Media (playerctl) ────────────────────────────────────
+    "custom/media": {
+        "format": "{}",
+        "return-type": "json",
+        "max-length": 40,
+        "exec": "~/.config/waybar/scripts/media.sh 2>/dev/null",
+        "interval": 2,
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "tooltip": true
+    },
+
+    // ── RIGHT: Brightness (SwayOSD popup, brightnessctl fallback) ───
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "<span color='#fab387'>{icon}</span> {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "smooth-scrolling-threshold": 1,
+        "on-scroll-up": "swayosd-client --brightness raise || brightnessctl set +5%",
+        "on-scroll-down": "swayosd-client --brightness lower || brightnessctl set 5%-",
+        "tooltip-format": "Brightness {percent}%"
+    },
+
+    // ── RIGHT: Volume (SwayOSD popup, wpctl fallback) ───────────────
+    "pulseaudio": {
+        "format": "<span color='#a6e3a1'>{icon}</span> {volume}%",
+        "format-muted": "<span color='#6c7086'>󰝟</span> muted",
+        "format-bluetooth": "<span color='#a6e3a1'>{icon}󰂯</span> {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "headset": "󰋎",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "smooth-scrolling-threshold": 1,
+        "on-scroll-up": "swayosd-client --output-volume raise || wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "swayosd-client --output-volume lower || wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "on-click": "pavucontrol",
+        "on-click-right": "swayosd-client --output-volume mute-toggle || wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip-format": "{desc} — {volume}%"
+    },
+
+    // ── RIGHT: Network ──────────────────────────────────────────────
+    "network": {
+        "format-wifi": "<span color='#74c7ec'>󰤨</span> {signalStrength}%",
+        "format-ethernet": "<span color='#74c7ec'>󰈀</span> {ipaddr}",
+        "format-linked": "<span color='#74c7ec'>󰈀</span> {ifname} (no IP)",
+        "format-disconnected": "<span color='#f38ba8'>󰤭</span> off",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "kitty -e nmtui"
+    },
+
+    // ── RIGHT: Battery ──────────────────────────────────────────────
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span color='#94e2d5'>{icon}</span> {capacity}%",
+        "format-charging": "<span color='#a6e3a1'>󰂄</span> {capacity}%",
+        "format-plugged": "<span color='#a6e3a1'>󰚥</span> {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}  ({power}W)",
+        "interval": 30
+    },
+
+    // ── RIGHT: System tray ──────────────────────────────────────────
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}
